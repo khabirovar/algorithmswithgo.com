@@ -2,7 +2,6 @@ package module01
 
 import (
 	"fmt"
-	"strings"
 )
 
 // FizzBuzz will print out all of the numbers
@@ -16,20 +15,25 @@ import (
 // I wouldn't normally recommend this, but did
 // it here to make life easier for beginners.
 func FizzBuzz(n int) {
-	var sb strings.Builder
-	sb.WriteString("1")
-	for i := 2; i <= n; i++ {
-		sb.WriteString(", ")
-		switch {
-		case i%5 == 0 && i%3 == 0:
-			sb.WriteString("Fizz Buzz")
-		case i%3 == 0:
-			sb.WriteString("Fizz")
-		case i%5 == 0:
-			sb.WriteString("Buzz")
-		default:
-			sb.WriteString(fmt.Sprintf("%d", i))
+	for i := 1; i <= n; i++ {
+		fmt.Print(getValue(i))
+		if i != n {
+			fmt.Print(", ")
 		}
 	}
-	fmt.Println(sb.String())
+	fmt.Println()
+}
+
+func getValue(n int) string {
+	switch {
+	case n%5 == 0 && n%3 == 0:
+		return "Fizz Buzz"
+	case n%3 == 0:
+		return "Fizz"
+	case n%5 == 0:
+		return "Buzz"
+	default:
+		return fmt.Sprintf("%d", n)
+	}
+
 }
