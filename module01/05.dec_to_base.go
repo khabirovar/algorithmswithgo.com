@@ -15,12 +15,11 @@ import (
 //	DecToBase(14, 2) => "1110"
 func DecToBase(dec, base int) string {
 	var number strings.Builder
-	for dec >= base {
+	for dec > 0 {
 		rem := dec % base
 		number.WriteString(getNumber(rem))
 		dec /= base
 	}
-	number.WriteString(getNumber(dec))
 
 	return Reverse(number.String())
 }
