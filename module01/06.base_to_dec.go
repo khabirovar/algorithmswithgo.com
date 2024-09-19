@@ -1,9 +1,5 @@
 package module01
 
-import (
-	"math"
-)
-
 // BaseToDec takes in a number and the base it is currently
 // in and returns the decimal equivalent as an integer.
 //
@@ -14,9 +10,10 @@ import (
 func BaseToDec(value string, base int) int {
 	dec := 0
 	value = Reverse(value)
-	for idx, num := range value {
-
-		dec += int(math.Pow(float64(base), float64(idx))) * getNumbered(num)
+	power := 1
+	for _, num := range value {
+		dec += power * getNumbered(num)
+		power *= base
 	}
 	return dec
 }
