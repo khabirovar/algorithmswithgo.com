@@ -2,7 +2,6 @@ package module01
 
 import (
 	"math"
-	"strconv"
 )
 
 // BaseToDec takes in a number and the base it is currently
@@ -23,10 +22,8 @@ func BaseToDec(value string, base int) int {
 }
 
 func getNumbered(r rune) int {
-	var num int
 	if r >= '0' && r <= '9' {
-		num, _ = strconv.Atoi(string(r))
-		return num
+		return int(r - '0')
 	}
 	return int(r-'A') + 10
 }
