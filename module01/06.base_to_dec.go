@@ -12,13 +12,13 @@ func BaseToDec(value string, base int) int {
 	value = Reverse(value)
 	power := 1
 	for _, num := range value {
-		dec += power * getNumbered(num)
+		dec += power * unhex(num)
 		power *= base
 	}
 	return dec
 }
 
-func getNumbered(r rune) int {
+func unhex(r rune) int {
 	if r >= '0' && r <= '9' {
 		return int(r - '0')
 	}
